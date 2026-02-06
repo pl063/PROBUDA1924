@@ -1,0 +1,174 @@
+/* --- STATS SECTION --- */
+.stats-section { max-width: 1200px; margin: -3em auto 3em; padding: 0 2em; position: relative; z-index: 10; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5em; }
+.stat-card { background: white; border-radius: 16px; padding: 2em; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
+.stat-card:hover { transform: translateY(-5px); }
+.stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); font-family: var(--font-serif); }
+
+/* --- TIMELINE --- */
+.timeline { position: relative; padding: 2em 0; overflow: hidden; } /* Overflow hidden is critical here */
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--accent), var(--primary)); transform: translateX(-50%); }
+
+.timeline-item { position: relative; margin-bottom: 3em; display: grid; grid-template-columns: 1fr 80px 1fr; gap: 2em; align-items: center; }
+.marker-circle { width: 80px; height: 80px; border-radius: 50%; background: white; border: 4px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 2em; z-index: 5; }
+
+/* Grid positioning */
+.timeline-item:nth-child(even) .award-card { grid-column: 1; }
+.timeline-item:nth-child(even) .timeline-marker { grid-column: 2; }
+.timeline-item:nth-child(odd) .award-card { grid-column: 3; }
+.timeline-item:nth-child(odd) .timeline-marker { grid-column: 2; }
+
+/* --- AWARD CARDS --- */
+.award-card { background: white; border-radius: 16px; padding: 2em; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); border-left: 5px solid var(--primary); }
+.award-card.gold { border-left-color: #FFD700; background: linear-gradient(to right, #FFFBF0 0%, white 100%); }
+.award-card.silver { border-left-color: #C0C0C0; }
+
+.award-title { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5em; font-weight: 700; }
+.award-year { background: var(--primary); color: white; padding: 0.4em 1em; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline::before { left: 30px; }
+    .timeline-item { grid-template-columns: 60px 1fr; gap: 1.5em; }
+    .timeline-item:nth-child(even) .award-card, .timeline-item:nth-child(odd) .award-card { grid-column: 2; grid-row: 1; }
+    .timeline-item:nth-child(even) .timeline-marker, .timeline-item:nth-child(odd) .timeline-marker { grid-column: 1; grid-row: 1; }
+    .timeline-empty { display: none; }
+}
+
+/* Award Cards */
+.award-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--primary);
+}
+
+.award-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Medal Colors */
+.marker-circle.gold, .award-card.gold { border-color: #FFD700; }
+.award-card.gold { background: linear-gradient(to right, #FFFBF0 0%, white 100%); }
+.marker-circle.gold { background: linear-gradient(135deg, #FFD700, #FFA500); }
+
+.marker-circle.silver, .award-card.silver { border-color: #C0C0C0; }
+.award-card.silver { background: linear-gradient(to right, #F8F8F8 0%, white 100%); }
+.marker-circle.silver { background: linear-gradient(135deg, #C0C0C0, #A8A8A8); }
+
+.marker-circle.bronze, .award-card.bronze { border-color: #CD7F32; }
+.award-card.bronze { background: linear-gradient(to right, #FFF8F0 0%, white 100%); }
+.marker-circle.bronze { background: linear-gradient(135deg, #CD7F32, #B87333); }
+
+/* Award Details */
+.award-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1em;
+    gap: 1em;
+}
+
+.award-year {
+    background: var(--primary);
+    color: white;
+    padding: 0.4em 1em;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.award-place {
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.4em 1em;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.award-place.first { background: rgba(255, 215, 0, 0.2); color: #B8860B; }
+.award-place.second { background: rgba(192, 192, 192, 0.3); color: #696969; }
+.award-place.special { background: rgba(49, 105, 78, 0.2); color: var(--primary-dark); }
+
+.award-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.award-event {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1em;
+    font-size: 1.05rem;
+}
+
+.award-meta {
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.timeline {
+    position: relative;
+    padding: 2em 0;
+    /* SAFETY FIX: Prevents line from bleeding into footer */
+    overflow: hidden; 
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent), var(--primary));
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3em;
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 2em;
+    align-items: center;
+}
+
+.timeline-marker {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marker-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    border: 4px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .marker-circle {
+    transform: scale(1.1);
+    border-color: var(--accent);
+}
+
+.stat-icon { font-size: 3em; margin-bottom: 0.3em; }

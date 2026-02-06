@@ -1,0 +1,111 @@
+/* --- 1. VARIABLES --- */
+:root {
+    --primary: #31694E;
+    --primary-dark: #1F4A37;
+    --accent: #BBC863;
+    --accent-hover: #9AA850;
+    --text-dark: #2D3748;
+    --text-light: #718096;
+    --bg-gradient: linear-gradient(to bottom, #F7FAFC 0%, #EDF2F7 100%);
+    --font-main: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+}
+
+/* --- 2. RESET & BASICS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 3em 2em; }
+.content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3em; margin-bottom: 3em; }
+
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.2em 2em;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    border-bottom: 3px solid var(--primary);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav a:hover,
+nav a.active {
+    background: #F0F4F0;
+    color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 80%;
+}
+/* --- 4. SHARED PAGE HEADER (For internal pages) --- */
+.page-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white; padding: 4em 2em; text-align: center;
+    position: relative; overflow: hidden;
+}
+.page-header h1 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5em; }
+.page-header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+.page-header::before {
+    content: '✨'; position: absolute; font-size: 15em; opacity: 0.05;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+}
+
+/* --- 5. BUTTONS & CTA --- */
+.cta-button, .join-button {
+    display: inline-block; background: white; color: var(--primary);
+    padding: 1em 2.5em; border-radius: 50px; text-decoration: none;
+    font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.cta-button:hover, .join-button:hover {
+    transform: translateY(-3px); box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); background: #F7FAFC;
+}
+
+/* --- 6. FOOTER --- */
+footer { background: var(--primary-dark); color: white; padding: 3em 2em 2em; margin-top: 4em; }
+.footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2em; margin-bottom: 2em; }
+.footer-section h3 { color: var(--accent); margin-bottom: 1em; font-size: 1.2rem; }
+.footer-section p, .footer-section a { color: #CBD5E0; text-decoration: none; line-height: 2; transition: color 0.3s ease; }
+.footer-section a:hover { color: var(--accent); }
+.footer-bottom { text-align: center; padding-top: 2em; border-top: 1px solid rgba(255, 255, 255, 0.1); color: #9CA3AF; }
+
+/* --- 7. RESPONSIVE UTILS --- */
+@media (max-width: 768px) {
+    nav { flex-wrap: wrap; gap: 0.5rem; padding: 1em; }
+    .content-grid { grid-template-columns: 1fr; }
+}

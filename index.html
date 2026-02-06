@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>НЧ Пробуда-1924г. | Съхраняваме традициите</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./global.css">
+    <link rel="stylesheet" href="./home.css">
+
+</head>
+<body>
+    <nav>
+        <a href="/index.html">Начало</a>
+        <a href="/invites.html">Съобщения</a>
+        <a href="/clubs.html">Клубове</a>
+        <a href="/prizes.html">Награди</a>
+        <a href="/contacts.html">Контакти</a>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Народно читалище "Пробуда-1924 г."</h1>
+            <p class="hero-subtitle">с. Сърнево</p>
+            <div class="hero-badge">🏛️ Над 100 години традиция и култура</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="carousel-card">
+                <div class="carousel-container">
+                    <ul id="carousel">
+                        <li>
+                            <img src="/media/1000029488.jpg" alt="Читалище Пробуда">
+                        </li>
+                        <li>
+                            <img src="/media/1000029492.jpg" alt="Фолклорен състав">
+                        </li>
+                        <li>
+                             <img src="/media/1000029487.jpg" alt="Музейна зала">
+                        </li>
+                        <li>
+                             <img src="media/IMG-0d73b5d3a0b320aeed36d634318749cd-V.jpg" alt="Деца">
+                        </li>
+                        <li>
+                             <img src="media/IMG-6f161d921ddc479bc032908397a9d73c-V.jpg" alt="Китен">
+                        </li>
+                        <li>
+                            <img src="media/IMG-2ac09b6912e2e424b1568a0c495c1622-V.jpg" alt="Бабинден">
+                        </li>
+                        <li>
+                            <img src="media/IMG-076935aeb195324e006ab5b367484b8c-V.jpg" alt="Коледари">
+                        </li>
+                    </ul>
+                    
+                    <button class="carousel-btn prev" onclick="moveSlide(-1)">‹</button>
+                    <button class="carousel-btn next" onclick="moveSlide(1)">›</button>
+                </div>
+                <div class="carousel-dots" id="dots"></div>
+            </div>
+
+            <div class="about-card">
+                <h2>За нас</h2>
+                <p>
+                    Читалище ,,Пробуда-1924г с.Сърнево" е основано през далечната 1924г. от група будни самодейци. 
+                    През своята над 100-годишна история, читалището е било и остава дом на българската култура и традиции.
+                </p>
+                <p>
+                    То разполага с актуална библиотека, музейна зала на старобългарския бит, както и творчески състав за народни песни и обичаи.
+                    Самодейците активно участват в конкурси за българския фолклор, където често биват награждавани за своята автентичност, както и в благотворителни събития.
+                </p>
+                <p>
+                    През лятната и зимната ученическа ваканция, читалището организира събития за децата в района.
+                </p>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>Библиотека</h3>
+                <p>Актуална колекция от книги и ресурси за всички възрасти</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇧🇬</div>
+                <h3>Фолклор</h3>
+                <p>Автентични народни песни и обичаи</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏺</div>
+                <h3>Музейна зала</h3>
+                <p>Зала на старобългарския бит и културно наследство</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎫</div>
+                <h3>Събития</h3>
+                <p>Отбелязване на български и международни празници</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Присъединете се към нас!</h2>
+            <p>Потопете се в духа на българската традиция и общност</p>
+            <a href="/contacts.html" class="cta-button">Свържете се с нас</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>НЧ Пробуда-1924г.</h3>
+                <p>Съхраняваме и развиваме българската култура и традиции от 1924 година.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Бързи връзки</h3>
+                <p><a href="/clubs.html">Клубове</a></p>
+                <p><a href="/calendar.html">Календар</a></p>
+                <p><a href="/prizes.html">Награди</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакти</h3>
+                <p>📍 с. Сърнево</p>
+                <p>📧 info@probuda1924.bg</p>
+                <p>📞 +359 XXX XXX XXX</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 НЧ Пробуда-1924г. Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        const slides = carousel.querySelectorAll('li');
+        const totalSlides = slides.length;
+        const dotsContainer = document.getElementById('dots');
+
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'dot';
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        updateCarousel();
+    </script>
+</body>
+</html>
